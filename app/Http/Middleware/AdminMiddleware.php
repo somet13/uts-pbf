@@ -19,13 +19,17 @@ class AdminMiddleware
         try {
             $user = JWTAuth::parseToken()->authenticate();
 
-            if ($user->role == 'admin') {
+            if ($user->role === 'admin') {
                 return $next($request);
             }
             return response()->json([
                 'success' => false,
                 'message' => 'Unauthorized'
             ], 401);
+            // return response()->json([
+            //     'success' => false,
+            //     'message' => $user
+            // ], 401);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,

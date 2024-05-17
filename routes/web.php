@@ -1,15 +1,28 @@
 <?php
 
 use App\Http\Controllers\GoogleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
+});
+
+Route::get('/home', function () {
+    $user = Auth::user();
+
+    return view('welcome', [
+        'data' => $user
+    ]);
 });
 
 
 
 // Google Login
 // Route::get('/oauth/register', [GoogleController::class, 'redirect']);
-Route::get('/oauth/google/redirect', [GoogleController::class, 'redirect']);
-Route::get('/oauth/google/callback', [GoogleController::class, 'callback']);
+
+Route::get('/logout', function () {
+    Auth::logout();
+
+     return redirect('/home');
+});
