@@ -2,7 +2,7 @@
 Nama : Firmansyah Maulana
 Kelas : IF22 E 
 Nim :22416255201228 
-[project](https://www.project-web.my.id/api)
+[project](https://www.project-web.my.id/api)//
 [home](https://www.project-web.my.id/home)
 
 ## Postman
@@ -14,9 +14,9 @@ Nim :22416255201228
 [Delete_ProductAdmin]({{baseUrl}}/api/products/{{id}})
 
 ## Categories
-[Read]({{baseUrl}}/api/categories)
-[Create]({{baseUrl}}/api/categories)
-[Update]({{baseUrl}}/api/categories/{{id}})
+[Read]({{baseUrl}}/api/categories)//
+[Create]({{baseUrl}}/api/categories)//
+[Update]({{baseUrl}}/api/categories/{{id}})//
 [Delete]({{baseUrl}}/api/categories/{{id}})
 
 ## Login GoogleAuth 
