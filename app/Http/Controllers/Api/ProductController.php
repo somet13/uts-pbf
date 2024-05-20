@@ -52,13 +52,12 @@ class ProductController extends Controller
 
         $hash_image = $request->image->hashName();
         $request->image->move(public_path('uploads/products'), $hash_image);
-        $image = 'uploads/products/' . $hash_image;
 
         Products::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
-            'image' => $image,
+            'image' => $hash_image,
             'category_id' => $category->id,
             'expired_at' => $request->expired_at,
             'modifed_by' => auth()->user()->email
@@ -110,11 +109,13 @@ class ProductController extends Controller
         }
 
         $image = $product->image;
+        // old image
+
 
         if ($request->image) {
             $hash_image = $request->image->hashName();
             $request->image->move(public_path('uploads/products'), $hash_image);
-            $image = 'uploads/products/' . $hash_image;
+            unlink(public_path('uploads/products/') . $product->image);
 
             $product->update([
                 'name' => $request->name,
@@ -166,7 +167,7 @@ class ProductController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Delete Success' 
+            'message' => 'Delete Success'
         ]);
     }
 }

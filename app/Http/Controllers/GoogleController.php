@@ -59,6 +59,14 @@ class GoogleController extends Controller
             ])->get('https://www.googleapis.com/oauth2/v3/userinfo');
 
             $userData = $response->json();
+
+            if (isset($userData['error'])) {
+                return response()->json([
+                    'error' => $userData['error'],
+                    'message' => 'token tidak valid harap get new Access Token terlebihi dahulu'
+                ], 500);
+            }
+
             $name = $userData['name'];
             $email = $userData['email'];
 
