@@ -8,9 +8,9 @@ Nim :22416255201228
 ## Postman
 
 ## products 
-[Create_ProductsAdmin]({{baseUrl}}/api/products)
-[Read_ProductAdmin]({{baseUrl}}/api/products)
-[Update_ProductAdmin]({{baseUrl}}/api/products/{{id}})
+[Create_ProductsAdmin]({{baseUrl}}/api/products) //
+[Read_ProductAdmin]({{baseUrl}}/api/products) //
+[Update_ProductAdmin]({{baseUrl}}/api/products/{{id}})//
 [Delete_ProductAdmin]({{baseUrl}}/api/products/{{id}})
 
 ## Categories
